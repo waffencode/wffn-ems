@@ -14,9 +14,10 @@ namespace client
 
         std::cout << selected_menu->title << std::endl << selected_menu->message << std::endl;
 
-        for (size_t i = 0, j = selected_menu->variants.size(); i < j; ++i)
+        size_t count = 0;
+        for (auto&& menu_action : selected_menu->variants)
         {
-            std::cout << "[" << i << "] " << selected_menu->variants.at(i) << std::endl;
+            std::cout << "[" << ++count << "] " << menu_action << std::endl;
         }
 
         get_action();
