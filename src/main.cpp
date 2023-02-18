@@ -1,9 +1,9 @@
-#include "client/menu.hpp"
+#include "client/menu_controller.hpp"
 
 int main()
 {
-    client::menu main_menu;
-    main_menu.show();
+    client::menu_controller main_menu_controller;
+    main_menu_controller.show(0);
     
     return 0;
 }
