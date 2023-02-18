@@ -18,7 +18,7 @@ namespace client
             create_menu("Main", "Select menu to continue", std::vector<std::string>{"Employees"});
         }
 
-        void create_menu(std::string name, std::string message, std::vector<std::string> variants)
+        void create_menu(const std::string& name, const std::string& message, const std::vector<std::string>& variants)
         {
             auto new_menu = std::make_unique<menu>(name, message, variants);
             pool.push_back(std::move(new_menu));

@@ -11,10 +11,9 @@ namespace client
         }
 
         auto *selected_menu = main_pool.pool.at(menu_id).get();
-
         std::cout << selected_menu->title << std::endl << selected_menu->message << std::endl;
-
         size_t count = 0;
+        
         for (auto& menu_action : selected_menu->variants)
         {
             std::cout << "[" << ++count << "] " << menu_action << std::endl;

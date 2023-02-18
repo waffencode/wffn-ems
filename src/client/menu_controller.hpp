@@ -10,7 +10,6 @@ namespace client
     public:
         void show(size_t menu_id);
     private:
-        size_t current_menu_id = 0;
         menu_pool main_pool;
         void get_action();
     };
