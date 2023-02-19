@@ -5,7 +5,7 @@ namespace client
 {
     void menu_controller::show(const size_t menu_id) 
     {
-        if (menu_id == -1 || menu_id > main_pool.pool.size())
+        if (menu_id > main_pool.pool.size())
         {
             std::cout << "Error" << std::endl;
         }
