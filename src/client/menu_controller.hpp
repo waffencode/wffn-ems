@@ -8,10 +8,10 @@ namespace client
     class menu_controller
     {
     public:
-        void show(size_t menu_id);
+        void show(size_t menu_id) const;
     private:
         menu_pool main_pool;
-        void get_action();
+        void get_action() const;
     };
 }
 
