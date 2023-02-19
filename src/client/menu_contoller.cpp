@@ -31,14 +31,14 @@ namespace client
         std::cin >> action;
 
         auto& next_variants = selected_menu->next;
-
+        std::cout << next_variants.size() << std::endl;
         if (action == next_variants.size() + 1)
         {
             show(selected_menu->prev);
         }
         else if (std::find(next_variants.begin(), next_variants.end(), action) != next_variants.end())
         {
-            show(selected_menu->next.at(action));
+            show(selected_menu->next.at(action - 1));
         }
         else
         {
