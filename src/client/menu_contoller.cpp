@@ -29,9 +29,8 @@ namespace client
     {
         size_t action;
         std::cin >> action;
-
         auto& next_variants = selected_menu->next;
-        std::cout << next_variants.size() << std::endl;
+        
         if (action == next_variants.size() + 1)
         {
             show(selected_menu->prev);
