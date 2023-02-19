@@ -8,10 +8,12 @@ namespace client
     class menu_controller
     {
     public:
-        void show(size_t menu_id) const;
+        void show(const size_t menu_id);
     private:
+        size_t current_menu_id;
+
         menu_pool main_pool;
-        void get_action() const;
+        void get_action(menu* selected_menu);
     };
 }
 
