@@ -10,6 +10,7 @@ namespace client
     public:
 
     private:
+        
         std::string title;
     };
 }

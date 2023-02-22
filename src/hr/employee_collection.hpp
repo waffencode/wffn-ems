@@ -9,6 +9,7 @@ namespace employee
     class employee_collection
     {
     public:
+        void add(std::unique_ptr<employee> employee); 
         void load();
         void save();
     private:
