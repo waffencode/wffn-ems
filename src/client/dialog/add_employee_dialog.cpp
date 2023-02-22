@@ -18,7 +18,7 @@ namespace client
             std::cout << "Enter employee salary per year: ";
             std::cin >> salary;
 
-            collection.add(std::move(std::make_unique<employee::employee>(name, surname, salary)));
+            collection.add_employee(std::move(std::make_unique<employee::employee>(name, surname, salary)));
         }
     }
 }
