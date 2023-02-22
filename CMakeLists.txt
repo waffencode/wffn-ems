@@ -3,7 +3,11 @@ project(wffn-ems VERSION 0.0.1)
 
 include(CTest)
 enable_testing()
-set(SRC_LIST src/main.cpp src/client/menu_contoller.cpp)
+set(SRC_LIST 
+    src/main.cpp 
+    src/client/menu_contoller.cpp
+    src/client/dialog/add_employee_dialog.cpp
+)
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
