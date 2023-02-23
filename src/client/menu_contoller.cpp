@@ -25,9 +25,9 @@ namespace client
         std::cout << selected_menu->get_title() << std::endl << selected_menu->get_message() << std::endl;
         size_t count = 0;
         
-        if (selected_menu->dialog != dialog_id::none)
+        if (selected_menu->get_dialog() != dialog_id::none)
         {
-            main_dialog_pool.get()->call_dialog(selected_menu->dialog);
+            main_dialog_pool.get()->call_dialog(selected_menu->get_dialog());
         }
 
         for (const auto& menu_action : selected_menu->get_variants())
@@ -43,11 +43,11 @@ namespace client
     {
         size_t action = menu_action::exit;
         std::cin >> action;
-        auto& next_variants = selected_menu->next;
+        auto& next_variants = selected_menu->get_next();
 
         if (action == next_variants.size() + 1)
         {
-            current_menu_id = selected_menu->prev;
+            current_menu_id = selected_menu->get_prev();
             return menu_action::prev_menu;
         }
         else if (action == next_variants.size() + 2)
@@ -55,7 +55,7 @@ namespace client
             return menu_action::exit;
         }
         else {
-            current_menu_id = selected_menu->next.at(action - 1);
+            current_menu_id = selected_menu->get_next().at(action - 1);
             return menu_action::next_menu;
         }
 

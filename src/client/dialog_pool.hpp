@@ -3,19 +3,13 @@
 
 #include "dialog/add_employee_dialog.hpp"
 #include "dialog/show_employee_dialog.hpp"
+#include "dialog_id.hpp"
 #include "../core/core.hpp"
 #include <memory>
 #include <vector>
 
 namespace client
 {
-    enum dialog_id
-    {
-        none,
-        employee_add,
-        employee_show
-    };
-
     class dialog_pool
     {
     public:
