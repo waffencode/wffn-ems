@@ -1,17 +1,20 @@
 #ifndef DIALOG_H
 #define DIALOG_H
 
-#include "../hr/employee_collection.hpp"
 #include "dialog/add_employee_dialog.hpp"
-#include <vector>
+#include "../core/core.hpp"
 #include <memory>
+#include <vector>
 
-namespace client 
+namespace client
 {
     class dialog_pool
     {
     public:
-        void add_employee() { dialog::add_employee_dialog(); }
+        dialog_pool(core::core* _handle) : core_handle(_handle) { }
+        void add_employee() { dialog::add_employee_dialog(core_handle->get_hr_handle()->get_main_collection()); }
+    private:
+        core::core* core_handle;
     };
 }
 

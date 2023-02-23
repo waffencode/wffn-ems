@@ -7,6 +7,8 @@ namespace core
 {
     class hr_system
     {
+    public:
+        employee::employee_collection* get_main_collection() { return &collection; }
     private:
         employee::employee_collection collection;
     };

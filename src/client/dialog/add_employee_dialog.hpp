@@ -7,7 +7,8 @@ namespace client
 {
     namespace dialog 
     {
-        void add_employee_dialog(employee::employee_collection& collection);
+        void add_employee_dialog(employee::employee_collection* collection);
     }
 }
+
 #endif

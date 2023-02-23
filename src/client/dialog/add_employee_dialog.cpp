@@ -6,7 +6,7 @@ namespace client
 {
     namespace dialog 
     {
-        void add_employee_dialog(employee::employee_collection& collection)
+        void add_employee_dialog(employee::employee_collection* collection)
         {
             std::string name = "", surname = "";
             float salary = 0;
@@ -18,7 +18,7 @@ namespace client
             std::cout << "Enter employee salary per year: ";
             std::cin >> salary;
 
-            collection.add_employee(std::move(std::make_unique<employee::employee>(name, surname, salary)));
+            collection->add_employee(std::move(std::make_unique<employee::employee>(name, surname, salary)));
         }
     }
 }

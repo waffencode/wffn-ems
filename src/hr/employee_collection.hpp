@@ -11,7 +11,6 @@ namespace employee
     {
     public:
         void add_employee(std::unique_ptr<employee> employee) { collection.push_back(std::move(employee)); }
-    private:
         std::vector<std::unique_ptr<employee>> collection;
     };
 }
