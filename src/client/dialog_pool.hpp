@@ -1,5 +1,5 @@
-#ifndef DIALOG_H
-#define DIALOG_H
+#ifndef DIALOG_POOL_HPP
+#define DIALOG_POOL_HPP
 
 #include "dialog/add_employee_dialog.hpp"
 #include "dialog/show_employee_dialog.hpp"
