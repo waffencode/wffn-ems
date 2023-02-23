@@ -8,8 +8,6 @@
 
 namespace client
 {
-    using client::dialog_id;
-
     class menu
     {
     public:
