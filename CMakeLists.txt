@@ -7,6 +7,7 @@ set(SRC_LIST
     src/main.cpp 
     src/client/menu_contoller.cpp
     src/client/dialog/add_employee_dialog.cpp
+    src/client/dialog/show_employee_dialog.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})

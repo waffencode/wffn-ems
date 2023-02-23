@@ -8,9 +8,10 @@ namespace core
     class hr_system
     {
     public:
-        employee::employee_collection* get_main_collection() { return &collection; }
+        hr_system() { collection = std::make_unique<employee::employee_collection>(); }
+        employee::employee_collection* get_main_collection() { return collection.get(); }
     private:
-        employee::employee_collection collection;
+        std::unique_ptr<employee::employee_collection> collection;
     };
 }
 

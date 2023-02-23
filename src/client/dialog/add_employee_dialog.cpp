@@ -15,10 +15,10 @@ namespace client
             std::cin >> name;
             std::cout << "Enter employee last name: ";
             std::cin >> surname;
-            std::cout << "Enter employee salary per year: ";
+            std::cout << "Enter employee salary per month: ";
             std::cin >> salary;
 
-            collection->add_employee(std::move(std::make_unique<employee::employee>(name, surname, salary)));
+            collection->add_employee(std::make_unique<employee::employee>(name, surname, salary));
         }
     }
 }

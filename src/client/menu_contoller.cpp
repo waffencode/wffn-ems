@@ -1,5 +1,6 @@
 #include "menu_controller.hpp"
 #include <iostream>
+#include <algorithm>
 
 namespace client
 {
@@ -16,7 +17,7 @@ namespace client
     {
         if (menu_id > main_pool.pool.size())
         {
-            std::cout << "Error" << std::endl;
+            std::cout << "Error at menu_controller (menu_id > main_pool.pool.size())" << std::endl;
         }
 
         current_menu_id = menu_id;
@@ -24,6 +25,11 @@ namespace client
         std::cout << selected_menu->get_title() << std::endl << selected_menu->get_message() << std::endl;
         size_t count = 0;
         
+        if (selected_menu->dialog != dialog_id::none)
+        {
+            main_dialog_pool.get()->call_dialog(selected_menu->dialog);
+        }
+
         for (const auto& menu_action : selected_menu->get_variants())
         {
             std::cout << "[" << ++count << "] " << menu_action << std::endl;
@@ -35,31 +41,24 @@ namespace client
 
     menu_action menu_controller::get_action(menu* selected_menu) 
     {
-        size_t action;
+        size_t action = menu_action::exit;
         std::cin >> action;
         auto& next_variants = selected_menu->next;
-        menu_action selected_action;
 
         if (action == next_variants.size() + 1)
         {
-            selected_action = menu_action::prev_menu;
             current_menu_id = selected_menu->prev;
+            return menu_action::prev_menu;
         }
         else if (action == next_variants.size() + 2)
         {
             return menu_action::exit;
         }
-        else if (std::find(next_variants.begin(), next_variants.end(), action) != next_variants.end())
-        {
-            selected_action = menu_action::next_menu;
+        else {
             current_menu_id = selected_menu->next.at(action - 1);
-        }
-        else
-        {
-            std::cout << "Error" << std::endl;
-            return menu_action::exit;
+            return menu_action::next_menu;
         }
 
-        return selected_action;
+        return menu_action::exit;
     }
 }

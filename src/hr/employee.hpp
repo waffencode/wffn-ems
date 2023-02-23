@@ -12,7 +12,7 @@ namespace employee
 
         const std::string& get_name() const { return name; }
         const std::string& get_surname() const { return surname; }
-        const float get_salary() const { return salary; }
+        float get_salary() const { return salary; }
     private:
         std::string name;
         std::string surname;

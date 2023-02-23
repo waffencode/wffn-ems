@@ -10,6 +10,7 @@ namespace client
     {
         next_menu,
         prev_menu,
+        show_dialog,
         exit
     };
 
