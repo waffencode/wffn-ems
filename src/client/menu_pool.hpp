@@ -21,19 +21,7 @@ namespace client
             create_menu("Add employees", "Provide required information about employee:", std::vector<std::string>{"Show"}, std::vector<size_t>{2}, 1, dialog_id::employee_add);
         }
 
-        void create_menu(const std::string& name, const std::string& message, const std::vector<std::string>& variants)
-        {
-            auto new_menu = std::make_unique<menu>(name, message, variants);
-            pool.push_back(std::move(new_menu));
-        }
-
-        void create_menu(const std::string& name, const std::string& message, const std::vector<std::string>& variants, const std::vector<size_t>& next, const size_t prev)
-        {
-            auto new_menu = std::make_unique<menu>(name, message, variants, next, prev);
-            pool.push_back(std::move(new_menu));
-        }
-
-        void create_menu(const std::string& name, const std::string& message, const std::vector<std::string>& variants, const std::vector<size_t>& next, const size_t prev, dialog_id dialog)
+        void create_menu(const std::string& name, const std::string& message, const std::vector<std::string>& variants, const std::vector<size_t>& next, const size_t prev = 0, dialog_id dialog = dialog_id::none)
         {
             auto new_menu = std::make_unique<menu>(name, message, variants, next, prev, dialog);
             pool.push_back(std::move(new_menu));

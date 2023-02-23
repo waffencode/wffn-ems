@@ -13,9 +13,9 @@ namespace client
         menu(std::string _title, std::string _message, std::vector<std::string> _variants) 
             : title(std::move(_title)), message(std::move(_message)), variants(std::move(_variants)) { }
         menu(std::string _title, std::string _message, std::vector<std::string> _variants, std::vector<size_t> _next, size_t _prev) 
-            : title(std::move(_title)), message(std::move(_message)), variants(std::move(_variants)), next(std::move(_next)), prev(_prev) { }
+            : title(std::move(_title)), message(std::move(_message)), variants(_variants), next(_next), prev(_prev) { }
         menu(std::string _title, std::string _message, std::vector<std::string> _variants, std::vector<size_t> _next, size_t _prev, dialog_id _dialog) 
-            : title(std::move(_title)), message(std::move(_message)), variants(std::move(_variants)), next(std::move(_next)), prev(_prev), dialog(_dialog) { }
+            : title(std::move(_title)), message(std::move(_message)), variants(_variants), next(_next), prev(_prev), dialog(_dialog) { }
         
         [[nodiscard]] const std::string& get_title() const { return title; }
         [[nodiscard]] const std::string& get_message() const { return message; }
