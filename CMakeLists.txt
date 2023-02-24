@@ -10,6 +10,8 @@ set(SRC_LIST
     src/client/dialog/show_employee_dialog.cpp
 )
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20 -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-newline-eof")
+
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS_DEBUG "/SUBSYSTEM:CONSOLE")
