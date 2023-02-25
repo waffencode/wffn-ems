@@ -58,7 +58,5 @@ namespace client
             current_menu_id = selected_menu->get_next().at(action - 1);
             return menu_action::next_menu;
         }
-
-        return menu_action::exit;
     }
 }
