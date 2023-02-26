@@ -1,16 +1,14 @@
 #include "menu_controller.hpp"
 #include <iostream>
-#include <algorithm>
 
 namespace client
 {
     void menu_controller::program_loop()
     {
-        while (current_menu_action != menu_action::exit)
+        do
         {
             show(current_menu_id);
-            current_menu_action = get_action(main_pool.pool.at(current_menu_id).get());
-        }
+        } while (get_action(main_pool.pool.at(current_menu_id).get()) != menu_action::exit);
     }
 
     void menu_controller::show(const size_t menu_id) 
@@ -27,7 +25,7 @@ namespace client
         
         if (selected_menu->get_dialog() != dialog_id::none)
         {
-            main_dialog_pool.get()->call_dialog(selected_menu->get_dialog());
+            main_dialog_pool->call_dialog(selected_menu->get_dialog());
         }
 
         for (const auto& menu_action : selected_menu->get_variants())
@@ -39,11 +37,11 @@ namespace client
         std::cout << "[" << ++count << "] " << "Exit" << std::endl;
     }
 
-    menu_action menu_controller::get_action(menu* selected_menu) 
+    auto menu_controller::get_action(menu *selected_menu) -> menu_action
     {
         size_t action = menu_action::exit;
         std::cin >> action;
-        auto& next_variants = selected_menu->get_next();
+        const auto& next_variants = selected_menu->get_next();
 
         if (action == next_variants.size() + 1)
         {

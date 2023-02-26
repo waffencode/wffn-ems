@@ -9,7 +9,8 @@ namespace core
     class core
     {
     public:
-        hr_system* get_hr_handle() { return hr_handle.get(); }
+        auto get_hr_handle() -> hr_system * { return hr_handle.get(); }
+
     private:
         std::unique_ptr<hr_system> hr_handle = std::make_unique<hr_system>();
     };

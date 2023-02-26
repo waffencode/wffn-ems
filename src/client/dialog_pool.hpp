@@ -4,7 +4,6 @@
 #include "dialog/add_employee_dialog.hpp"
 #include "dialog/show_employee_dialog.hpp"
 #include "dialog_id.hpp"
-#include "../core/core.hpp"
 #include <memory>
 #include <vector>
 
@@ -13,11 +12,11 @@ namespace client
     class dialog_pool
     {
     public:
-        dialog_pool(core::core* _handle) : core_handle(_handle) { }
+        explicit dialog_pool(core::core* _handle) : core_handle(_handle) { }
         
-        void call_dialog(dialog_id id) 
+        void call_dialog(dialog_id selected_dialog) 
         { 
-            switch (id)
+            switch (selected_dialog)
             {
             case dialog_id::none: { break; }
             case dialog_id::employee_add: { add_employee(); break; }

@@ -10,7 +10,8 @@ namespace client
 
         void show_employee_dialog(employee::employee_collection* _collection)
         {
-            std::cout << std::left << std::setw(FIELD_WIDTH) << "First name" << std::setw(FIELD_WIDTH) << "Last name" << std::setw(FIELD_WIDTH) << "Salary per month" << std::endl;              
+            std::cout << std::left << std::setw(FIELD_WIDTH) << "First name" << std::setw(FIELD_WIDTH) << "Last name" << std::setw(FIELD_WIDTH) << "Salary per month" << std::endl;
+                          
             for (const auto& element : _collection->get_collection())
             {
                 const employee::employee* current = element.get();

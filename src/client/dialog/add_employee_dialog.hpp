@@ -1,14 +1,11 @@
 #ifndef ADD_EMPLOYEE_DIALOG_HPP
 #define ADD_EMPLOYEE_DIALOG_HPP
 
-#include "../../hr/employee_collection.hpp"
+#include "../../core/core.hpp"
 
-namespace client
+namespace client::dialog
 {
-    namespace dialog 
-    {
-        void add_employee_dialog(employee::employee_collection* collection);
-    }
+    void add_employee_dialog(employee::employee_collection *collection);
 }
 
 #endif
