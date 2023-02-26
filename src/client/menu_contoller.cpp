@@ -25,7 +25,7 @@ namespace client
 
         current_menu_id = menu_id;
         auto* selected_menu = main_pool.get_pool().at(menu_id).get();
-        std::cout << selected_menu->get_title() << std::endl << selected_menu->get_message() << std::endl;
+        std::cout << std::endl << "Menu: " << selected_menu->get_title() << std::endl << selected_menu->get_message() << std::endl;
         size_t count = 0;
         
         if (selected_menu->get_dialog() != dialog_id::none)
@@ -33,13 +33,16 @@ namespace client
             main_dialog_pool->call_dialog(selected_menu->get_dialog());
         }
 
+        std::cout << std::endl;
+
         for (const auto& menu_action : selected_menu->get_variants())
         {
             std::cout << "[" << ++count << "] " << menu_action << std::endl;
         }
 
-        std::cout << "[" << ++count << "] " << "Back" << std::endl;
-        std::cout << "[" << ++count << "] " << "Exit" << std::endl;
+        std::cout 
+            << "[" << ++count << "] " << "Back" << std::endl 
+            << "[" << ++count << "] " << "Exit" << std::endl;
     }
 
     auto menu_controller::get_action(menu *selected_menu) -> menu_action
