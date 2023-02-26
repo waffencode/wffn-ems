@@ -2,8 +2,8 @@
 #define EMPLOYEE_COLLECTION_HPP
 
 #include "employee.hpp"
-#include <vector>
 #include <memory>
+#include <vector>
 
 namespace employee
 {
@@ -12,6 +12,7 @@ namespace employee
     public:
         void add_employee(std::unique_ptr<employee> employee) { collection.push_back(std::move(employee)); }
         auto get_collection() -> std::vector<std::unique_ptr<employee>>& { return collection; }
+        
     private:
         std::vector<std::unique_ptr<employee>> collection;
     };

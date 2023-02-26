@@ -3,23 +3,28 @@
 
 namespace client
 {
+    menu_controller::menu_controller(core::core* handle) : core_handle(handle) 
+    { 
+        main_dialog_pool = std::make_unique<dialog_pool>(core_handle); 
+    }
+
     void menu_controller::program_loop()
     {
         do
         {
             show(current_menu_id);
-        } while (get_action(main_pool.pool.at(current_menu_id).get()) != menu_action::exit);
+        } while (get_action(main_pool.get_pool().at(current_menu_id).get()) != menu_action::exit);
     }
 
     void menu_controller::show(const size_t menu_id) 
     {
-        if (menu_id > main_pool.pool.size())
+        if (menu_id > main_pool.get_pool().size())
         {
             std::cout << "Error at menu_controller (menu_id > main_pool.pool.size())" << std::endl;
         }
 
         current_menu_id = menu_id;
-        auto* selected_menu = main_pool.pool.at(menu_id).get();
+        auto* selected_menu = main_pool.get_pool().at(menu_id).get();
         std::cout << selected_menu->get_title() << std::endl << selected_menu->get_message() << std::endl;
         size_t count = 0;
         
@@ -40,6 +45,7 @@ namespace client
     auto menu_controller::get_action(menu *selected_menu) -> menu_action
     {
         size_t action = menu_action::exit;
+        std::cout << "> ";
         std::cin >> action;
         const auto& next_variants = selected_menu->get_next();
 
@@ -48,7 +54,7 @@ namespace client
             current_menu_id = selected_menu->get_prev();
             return menu_action::prev_menu;
         }
-        else if (action == next_variants.size() + 2)
+        else if (action >= next_variants.size() + 2)
         {
             return menu_action::exit;
         }

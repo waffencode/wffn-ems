@@ -17,13 +17,10 @@ namespace client
     class menu_controller
     {
     public:
-        explicit menu_controller(core::core* handle) : core_handle(handle) 
-        { 
-            main_dialog_pool = std::make_unique<dialog_pool>(core_handle); 
-        }
-
+        explicit menu_controller(core::core* handle);
         void program_loop();
         void show(size_t menu_id);
+
     private:
         size_t current_menu_id = 0;
         core::core* core_handle;

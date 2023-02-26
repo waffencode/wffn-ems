@@ -26,6 +26,7 @@ namespace client
 
         void add_employee() { dialog::add_employee_dialog(core_handle->get_hr_handle()->get_main_collection()); }
         void show_employee() { dialog::show_employee_dialog(core_handle->get_hr_handle()->get_main_collection()); }
+        
     private:
         core::core* core_handle;
     };
