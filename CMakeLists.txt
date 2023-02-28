@@ -9,6 +9,7 @@ set(SRC_LIST
     src/client/menu_pool.cpp
     src/client/dialog/add_employee_dialog.cpp
     src/client/dialog/show_employee_dialog.cpp
+    src/client/dialog/employee_profile_dialog.cpp
 )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20 -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-newline-eof")

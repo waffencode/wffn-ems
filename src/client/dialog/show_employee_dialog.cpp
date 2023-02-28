@@ -9,7 +9,7 @@ namespace client::dialog
     void show_employee_dialog(employee::employee_collection *_collection)
     {
         std::cout << std::left << std::setw(FIELD_WIDTH / 2) << "ID" << std::setw(FIELD_WIDTH) << "First name" << std::setw(FIELD_WIDTH) << "Last name" << std::setw(FIELD_WIDTH) << "Salary per month" << std::endl;
-        size_t count = 0;
+        size_t count = -1;
 
         for (const auto &element : _collection->get_collection())
         {

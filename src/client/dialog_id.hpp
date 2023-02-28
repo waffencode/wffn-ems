@@ -7,7 +7,8 @@ namespace client
     {
         none,
         employee_add,
-        employee_show
+        employee_show,
+        employee_profile
     };
 }
 

@@ -3,6 +3,7 @@
 
 #include "dialog/add_employee_dialog.hpp"
 #include "dialog/show_employee_dialog.hpp"
+#include "dialog/employee_profile_dialog.hpp"
 #include "dialog_id.hpp"
 #include <memory>
 #include <vector>
@@ -21,12 +22,13 @@ namespace client
             case dialog_id::none: { break; }
             case dialog_id::employee_add: { add_employee(); break; }
             case dialog_id::employee_show: { show_employee(); break; }
+            case dialog_id::employee_profile: { employee_profile(); break; }
             }
         }
 
         void add_employee() { dialog::add_employee_dialog(core_handle->get_hr_handle()->get_main_collection()); }
         void show_employee() { dialog::show_employee_dialog(core_handle->get_hr_handle()->get_main_collection()); }
-        
+        void employee_profile() { dialog::employee_profile_dialog(core_handle->get_hr_handle()->get_main_collection()); }
     private:
         core::core* core_handle;
     };
