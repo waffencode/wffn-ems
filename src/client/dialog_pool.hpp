@@ -5,8 +5,6 @@
 #include "dialog/show_employee_dialog.hpp"
 #include "dialog/employee_profile_dialog.hpp"
 #include "dialog_id.hpp"
-#include <memory>
-#include <vector>
 
 namespace client
 {

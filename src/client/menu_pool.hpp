@@ -2,9 +2,6 @@
 #define MENU_POOL_H
 
 #include "menu.hpp"
-#include <memory>
-#include <string>
-#include <vector>
 
 namespace client 
 {
