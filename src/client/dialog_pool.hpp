@@ -12,7 +12,10 @@ namespace client
     class dialog_pool
     {
     public:
-        explicit dialog_pool(core::core* _handle) : core_handle(_handle) { }
+        explicit dialog_pool(core::core* _handle) : core_handle(_handle) 
+        { 
+            
+        }
         
         void call_dialog(dialog_id selected_dialog) 
         { 
@@ -31,6 +34,12 @@ namespace client
     private:
         core::core* core_handle;
         std::vector<std::unique_ptr<dialog>> pool;
+
+        void create_dialog(dialog_id id, void (*function)()) 
+        {
+            auto new_dialog = std::make_unique<dialog>(id, function);
+            pool.push_back(std::move(new_dialog));
+        }
     };
 }
 
