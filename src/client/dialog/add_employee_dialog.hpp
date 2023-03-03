@@ -3,7 +3,7 @@
 
 #include "../../core/core.hpp"
 
-namespace client::dialog
+namespace client::dialog_functions
 {
     void add_employee_dialog(employee::employee_collection *collection);
 }

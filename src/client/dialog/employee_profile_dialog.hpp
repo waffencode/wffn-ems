@@ -3,7 +3,7 @@
 
 #include "../../core/core.hpp"
 
-namespace client::dialog
+namespace client::dialog_functions
 {
     void employee_profile_dialog(employee::employee_collection *collection);
 }
