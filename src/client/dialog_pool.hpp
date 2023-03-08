@@ -21,16 +21,17 @@ namespace client
         
         void call_dialog(dialog_id selected_dialog) 
         {
-            for (const auto& d: pool)
+            for (const auto& dialog_unique_ptr: pool)
             {
-                const auto ptr = d.get();
+                auto *const ptr = dialog_unique_ptr.get();
+
                 if (ptr->id == selected_dialog)
                 {
                     ptr->execute(core_handle->get_hr_handle()->get_main_collection());
                 }
             } 
         }
-        
+
     private:
         core::core* core_handle;
         std::vector<std::unique_ptr<dialog<employee::employee_collection*>>> pool;
