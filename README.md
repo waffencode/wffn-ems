@@ -1,6 +1,6 @@
 # wffn-ems
 
-wffn-ems — Mininalistic CLI enterprise management system.
+wffn-ems — Minimalistic CLI enterprise management system.
 
 Current stack: C++, CMake, Clang.
 
