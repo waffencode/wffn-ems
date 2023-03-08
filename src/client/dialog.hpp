@@ -5,15 +5,16 @@
 
 namespace client
 {
+    template <typename DialogHandleType>
     class dialog
     {
     public:
-        dialog(dialog_id _id, void (*function)()) : id(_id), dialog_function(function) { }
-        void execute() { dialog_function(); }
+        dialog(dialog_id _id, void (*function)(DialogHandleType)) : id(_id), dialog_function(function) { }
+        void execute(DialogHandleType arg) { dialog_function(arg); }
 
         dialog_id id;
     private:
-        void (*dialog_function)();
+        void (*dialog_function)(DialogHandleType);
     };
 }
 

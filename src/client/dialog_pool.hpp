@@ -14,30 +14,31 @@ namespace client
     public:
         explicit dialog_pool(core::core* _handle) : core_handle(_handle) 
         { 
-            
+            create_dialog<employee::employee_collection*>(dialog_id::employee_add, dialog_functions::add_employee_dialog);
+            create_dialog<employee::employee_collection*>(dialog_id::employee_show, dialog_functions::show_employee_dialog);
+            create_dialog<employee::employee_collection*>(dialog_id::employee_profile, dialog_functions::employee_profile_dialog);
         }
         
         void call_dialog(dialog_id selected_dialog) 
-        { 
-            switch (selected_dialog)
+        {
+            for (const auto& d: pool)
             {
-            case dialog_id::none: { break; }
-            case dialog_id::employee_add: { add_employee(); break; }
-            case dialog_id::employee_show: { show_employee(); break; }
-            case dialog_id::employee_profile: { employee_profile(); break; }
-            }
+                const auto ptr = d.get();
+                if (ptr->id == selected_dialog)
+                {
+                    ptr->execute(core_handle->get_hr_handle()->get_main_collection());
+                }
+            } 
         }
-
-        void add_employee() { dialog_functions::add_employee_dialog(core_handle->get_hr_handle()->get_main_collection()); }
-        void show_employee() { dialog_functions::show_employee_dialog(core_handle->get_hr_handle()->get_main_collection()); }
-        void employee_profile() { dialog_functions::employee_profile_dialog(core_handle->get_hr_handle()->get_main_collection()); }
+        
     private:
         core::core* core_handle;
-        std::vector<std::unique_ptr<dialog>> pool;
+        std::vector<std::unique_ptr<dialog<employee::employee_collection*>>> pool;
 
-        void create_dialog(dialog_id id, void (*function)()) 
+        template <typename DialogHandleType>
+        void create_dialog(dialog_id id, void (*function)(DialogHandleType arg)) 
         {
-            auto new_dialog = std::make_unique<dialog>(id, function);
+            auto new_dialog = std::make_unique<dialog<DialogHandleType>>(id, function);
             pool.push_back(std::move(new_dialog));
         }
     };
