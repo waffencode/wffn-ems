@@ -1,8 +1,8 @@
 #ifndef CORE_HPP
 #define CORE_HPP
 
-#include "hr_system.hpp"
 #include "finance_system.hpp"
+#include "hr_system.hpp"
 #include <memory>
 
 namespace core

@@ -1,8 +1,8 @@
 #ifndef FINANCE_SYSTEM_HPP
 #define FINANCE_SYSTEM_HPP
 
-#include "hr_system.hpp"
 #include "../finance/finance_presenter.hpp"
+#include "hr_system.hpp"
 #include <memory>
 
 namespace core
@@ -10,9 +10,9 @@ namespace core
     class finance_system
     {
     public:
-        finance_system(hr_system* handle) : hr_handle(handle) 
+        explicit finance_system(hr_system* handle) : hr_handle(handle) 
         { 
-            presenter = std::make_unique<finance::finance_presenter>(handle->get_main_collection());
+            presenter = std::make_unique<finance::finance_presenter>(hr_handle->get_main_collection());
         }
 
     private:

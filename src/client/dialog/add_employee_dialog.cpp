@@ -6,7 +6,8 @@ namespace client::dialog_functions
 {
     void add_employee_dialog(employee::employee_collection *collection)
     {
-        std::string name = "", surname = "";
+        std::string name;
+        std::string surname;
         float salary = 0;
 
         std::cout << "Enter employee first name: ";
