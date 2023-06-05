@@ -18,6 +18,6 @@ jobs:
       with:
         generator: Ninja
         # Preferred executable for compiling C language files
-        c-compiler: clang # optional
+        c-compiler: clang
         # Preferred executable for compiling C++ language files
-        cxx-compiler: clang # optional
+        cxx-compiler: clang++
