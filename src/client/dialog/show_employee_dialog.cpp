@@ -8,6 +8,12 @@ namespace client::dialog_functions
 
     void show_employee_dialog(employee::employee_collection *_collection)
     {
+        if (_collection->get_collection().empty())
+        {
+            std::cout << "No employee information available" << std::endl;
+            return;
+        }
+
         std::cout << std::left << std::setw(FIELD_WIDTH / 2) << "ID" << std::setw(FIELD_WIDTH) << "First name" << std::setw(FIELD_WIDTH) << "Last name" << std::setw(FIELD_WIDTH) << "Salary per month" << std::endl;
         size_t count = 0;
 
