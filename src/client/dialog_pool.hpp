@@ -1,11 +1,11 @@
 #ifndef DIALOG_POOL_HPP
 #define DIALOG_POOL_HPP
 
-#include "dialog/add_employee_dialog.hpp"
-#include "dialog/show_employee_dialog.hpp"
-#include "dialog/employee_profile_dialog.hpp"
-#include "dialog_id.hpp"
 #include "dialog.hpp"
+#include "dialog/add_employee_dialog.hpp"
+#include "dialog/employee_profile_dialog.hpp"
+#include "dialog/show_employee_dialog.hpp"
+#include "dialog_id.hpp"
 
 namespace client
 {
@@ -25,7 +25,7 @@ namespace client
             {
                 auto *const ptr = dialog_unique_ptr.get();
 
-                if (ptr->id == selected_dialog)
+                if (ptr->get_id() == selected_dialog)
                 {
                     ptr->execute(core_handle->get_hr_handle()->get_main_collection());
                 }
@@ -37,9 +37,9 @@ namespace client
         std::vector<std::unique_ptr<dialog<employee::employee_collection*>>> pool;
 
         template <typename DialogHandleType>
-        void create_dialog(dialog_id id, void (*function)(DialogHandleType arg)) 
+        void create_dialog(dialog_id new_dialog_id, void (*dialog_function)(DialogHandleType arg)) 
         {
-            auto new_dialog = std::make_unique<dialog<DialogHandleType>>(id, function);
+            auto new_dialog = std::make_unique<dialog<DialogHandleType>>(new_dialog_id, dialog_function);
             pool.push_back(std::move(new_dialog));
         }
     };
