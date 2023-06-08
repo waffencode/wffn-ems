@@ -2,7 +2,6 @@
 #define FINANCE_PRESENTER_HPP
 
 #include "../hr/employee_collection.hpp"
-#include <memory>
 
 namespace finance
 {

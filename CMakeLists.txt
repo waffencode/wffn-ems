@@ -12,4 +12,4 @@ set(SRC_LIST
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
-set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 23)
+set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 20)
