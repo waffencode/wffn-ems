@@ -3,6 +3,7 @@
 
 #include "dialog_pool.hpp"
 #include "menu_pool.hpp"
+#include "client_data_interface.hpp"
 
 namespace client
 {
@@ -25,6 +26,7 @@ namespace client
         size_t current_menu_id = 0;
         core::core* core_handle;
         std::unique_ptr<dialog_pool> main_dialog_pool;
+        std::unique_ptr<client_data_interface> data_interface;
         menu_pool main_pool;
 
         auto get_action(menu *selected_menu) -> menu_action;

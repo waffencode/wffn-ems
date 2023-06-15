@@ -5,7 +5,8 @@ namespace client
 {
     menu_controller::menu_controller(core::core* handle) : core_handle(handle) 
     { 
-        main_dialog_pool = std::make_unique<dialog_pool>(core_handle); 
+        main_dialog_pool = std::make_unique<dialog_pool>(core_handle);
+        data_interface = std::make_unique<client_data_interface>(core_handle); 
     }
 
     void menu_controller::program_loop()

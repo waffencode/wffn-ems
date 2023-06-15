@@ -23,11 +23,9 @@ namespace client
         {
             for (const auto& dialog_unique_ptr: pool)
             {
-                auto *const ptr = dialog_unique_ptr.get();
-
-                if (ptr->get_id() == selected_dialog)
+                if (dialog_unique_ptr->get_id() == selected_dialog)
                 {
-                    ptr->execute(core_handle->get_hr_handle()->get_main_collection());
+                    dialog_unique_ptr->execute(core_handle->get_hr_handle()->get_main_collection());
                 }
             } 
         }
