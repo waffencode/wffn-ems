@@ -19,7 +19,7 @@ namespace client
         [[nodiscard]] auto get_variants() const -> const std::vector<std::string> & { return variants; }
         [[nodiscard]] auto get_next() const -> const std::vector<size_t> & { return next; }
         [[nodiscard]] auto get_prev() const -> size_t { return prev; }
-        [[nodiscard]] auto get_dialog() const -> dialog_id { return dialog; }
+        [[nodiscard]] auto get_assigned_dialog_id() const -> dialog_id { return dialog; }
 
     private:
         std::string title;

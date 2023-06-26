@@ -5,11 +5,11 @@
 
 namespace client::dialog_functions
 {
-    void employee_profile_dialog(employee::employee_collection *collection)
+    void employee_profile_dialog(client_data_interface *interface)
     {
-        show_employee_dialog(collection);
+        show_employee_dialog(interface);
         
-        if (collection->get_collection().empty())
+        if (interface->get_employee_collection()->get_collection().empty())
         {
             std::cout << "Profiles unavailable" << std::endl;
             return;
@@ -18,7 +18,7 @@ namespace client::dialog_functions
         size_t employee_id = 0;
         std::cout << "> ";
         std::cin >> employee_id;
-        const employee::employee *employee = collection->get_collection().at(employee_id).get();
+        const employee::employee *employee = interface->get_employee_collection()->get_collection().at(employee_id).get();
         
         std::cout << "Employee profile: ID " << employee_id << std::endl
             << "Name: " << employee->get_name() << std::endl

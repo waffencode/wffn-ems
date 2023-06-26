@@ -29,9 +29,9 @@ namespace client
         std::cout << std::endl << "Menu: " << selected_menu->get_title() << std::endl << selected_menu->get_message() << std::endl;
         size_t count = 0;
         
-        if (selected_menu->get_dialog() != dialog_id::none)
+        if (selected_menu->get_assigned_dialog_id() != dialog_id::none)
         {
-            main_dialog_pool->call_dialog(selected_menu->get_dialog());
+            main_dialog_pool->call_dialog(selected_menu->get_assigned_dialog_id());
         }
 
         std::cout << std::endl;

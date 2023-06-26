@@ -4,7 +4,7 @@
 
 namespace client::dialog_functions
 {
-    void add_employee_dialog(employee::employee_collection *collection)
+    void add_employee_dialog(client_data_interface *interface)
     {
         std::string name;
         std::string surname;
@@ -17,6 +17,6 @@ namespace client::dialog_functions
         std::cout << "Enter employee salary per month: ";
         std::cin >> salary;
 
-        collection->add_employee(std::make_unique<employee::employee>(name, surname, salary));
+        interface->get_employee_collection()->add_employee(std::make_unique<employee::employee>(name, surname, salary));
     }
 }

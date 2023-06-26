@@ -10,14 +10,9 @@ namespace client
     public:
         explicit client_data_interface(core::core* handle) : core_handle(handle) { }
 
-        void add_employee()
+        auto get_employee_collection() -> employee::employee_collection *
         {
-
-        }
-
-        void show_employee()
-        {
-
+            return core_handle->get_hr_handle()->get_main_collection();
         }
 
     private:

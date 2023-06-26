@@ -2,8 +2,8 @@
 #define MENU_CONTROLLER_HPP
 
 #include "dialog_pool.hpp"
-#include "menu_pool.hpp"
 #include "client_data_interface.hpp"
+#include "menu_pool.hpp"
 
 namespace client
 {

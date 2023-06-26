@@ -6,9 +6,11 @@ namespace client::dialog_functions
 {
     static const int FIELD_WIDTH = 15;
 
-    void show_employee_dialog(employee::employee_collection *_collection)
+    void show_employee_dialog(client_data_interface *interface)
     {
-        if (_collection->get_collection().empty())
+        const auto& main_collection = interface->get_employee_collection()->get_collection();
+
+        if (main_collection.empty())
         {
             std::cout << "No employee information available" << std::endl;
             return;
@@ -17,14 +19,13 @@ namespace client::dialog_functions
         std::cout << std::left << std::setw(FIELD_WIDTH / 2) << "ID" << std::setw(FIELD_WIDTH) << "First name" << std::setw(FIELD_WIDTH) << "Last name" << std::setw(FIELD_WIDTH) << "Salary per month" << std::endl;
         size_t count = 0;
 
-        for (const auto &element : _collection->get_collection())
+        for (const auto& element : main_collection)
         {
-            const employee::employee *current = element.get();
             std::cout << std::left
                       << std::setw(FIELD_WIDTH / 2) << count++
-                      << std::setw(FIELD_WIDTH) << current->get_name()
-                      << std::setw(FIELD_WIDTH) << current->get_surname()
-                      << std::setw(FIELD_WIDTH) << current->get_salary() << std::endl;
+                      << std::setw(FIELD_WIDTH) << element->get_name()
+                      << std::setw(FIELD_WIDTH) << element->get_surname()
+                      << std::setw(FIELD_WIDTH) << element->get_salary() << std::endl;
         }
     }
 }

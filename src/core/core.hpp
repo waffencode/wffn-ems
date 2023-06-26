@@ -16,7 +16,7 @@ namespace core
         auto get_finance_handle() -> finance_system * { return finance_handle.get(); }
 
     private:
-        const std::unique_ptr<hr_system> hr_handle = std::make_unique<hr_system>();
+        std::unique_ptr<hr_system> hr_handle = std::make_unique<hr_system>();
         std::unique_ptr<finance_system> finance_handle;
     };
 }
